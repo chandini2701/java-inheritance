@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Inheritance | Complete Guide</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h2>Java<span>Learn</span></h2>
+        <a href="#example">Java Example</a>
+      </nav>
+
+      <div class="hero">
+        <p class="tag">CORE JAVA CONCEPT</p>
+        <h1>Java Inheritance</h1>
+        <p>
+          Learn how one class can acquire the properties and methods of another
+          class with simple explanations and examples.
+        </p>
+        <a class="btn" href="#introduction">Start Learning</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="introduction">
+        <h2>1. What Is Inheritance?</h2>
+        <p>
+          Inheritance is an important feature of Object-Oriented Programming
+          (OOP). It allows one class to acquire accessible fields and methods
+          from another class.
+        </p>
+        <p>
+          The class whose features are inherited is called the
+          <strong>parent class</strong>, superclass, or base class. The class
+          that inherits those features is called the
+          <strong>child class</strong>, subclass, or derived class.
+        </p>
+        <div class="note">
+          <strong>Remember:</strong> In Java, the keyword
+          <code>extends</code> is used for class inheritance.
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Why Do We Use Inheritance?</h2>
+        <ul>
+          <li>Code reusability: reuse existing methods and fields.</li>
+          <li>Reduces code duplication.</li>
+          <li>Makes programs easier to maintain.</li>
+          <li>Supports method overriding and runtime polymorphism.</li>
+          <li>Helps create logical relationships between classes.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Important Terminology</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Parent Class</h3>
+            <p>A class that provides accessible members to a child class.</p>
+          </article>
+          <article class="card">
+            <h3>Child Class</h3>
+            <p>
+              A class that extends another class and inherits its accessible
+              members.
+            </p>
+          </article>
+          <article class="card">
+            <h3>extends</h3>
+            <p>The Java keyword used to inherit from a class.</p>
+          </article>
+          <article class="card">
+            <h3>super</h3>
+            <p>
+              Used to refer to superclass members and invoke superclass
+              constructors.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Types of Inheritance in Java</h2>
+
+        <div class="type">
+          <h3>1. Single Inheritance</h3>
+          <p>One child class inherits from one parent class.</p>
+          <div class="diagram">Animal → Dog</div>
+        </div>
+
+        <div class="type">
+          <h3>2. Multilevel Inheritance</h3>
+          <p>A class inherits from a child class, forming multiple levels.</p>
+          <div class="diagram">Animal → Dog → Puppy</div>
+        </div>
+
+        <div class="type">
+          <h3>3. Hierarchical Inheritance</h3>
+          <p>Multiple child classes inherit from the same parent class.</p>
+          <div class="diagram">Animal → Dog<br />Animal → Cat</div>
+        </div>
+
+        <div class="type">
+          <h3>4. Multiple Inheritance</h3>
+          <p>
+            A class inherits from multiple parents. Java does not support
+            multiple inheritance through classes, but it supports implementing
+            multiple interfaces.
+          </p>
+          <div class="diagram">Interface A + Interface B → Class C</div>
+        </div>
+
+        <div class="type">
+          <h3>5. Hybrid Inheritance</h3>
+          <p>
+            A combination of two or more inheritance types. Java can model
+            hybrid inheritance using interfaces, since multiple inheritance of
+            classes is not allowed.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. Rules of Inheritance</h2>
+        <ul>
+          <li>A Java class can directly extend only one class.</li>
+          <li>Constructors are not inherited.</li>
+          <li>Private members cannot be accessed directly in a child class.</li>
+          <li>
+            Public and protected members are accessible according to Java access
+            rules.
+          </li>
+          <li>
+            Package-private members are accessible only within the same package.
+          </li>
+          <li>Final classes cannot be extended.</li>
+          <li>
+            Static methods are hidden, not overridden in the usual polymorphic
+            sense.
+          </li>
+          <li>
+            Every Java class except Object ultimately has Object as an ancestor.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Inheritance vs. Encapsulation</h2>
+        <p>
+          Inheritance allows a class to reuse or extend another class's
+          behavior. Encapsulation bundles data and methods together and controls
+          access to an object's internal state.
+        </p>
+      </section>
+
+      <section id="example">
+        <h2>7. Java Program Example</h2>
+        <p>
+          In this example, the Dog class inherits the eat() method from the
+          Animal class and defines its own bark() method.
+        </p>
+
+        <div class="code-heading">
+          <span>InheritanceExample.java</span>
+          <button id="copyButton">Copy Code</button>
+        </div>
+
+        <pre><code id="javaCode">class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class InheritanceExample {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+
+        d.eat();
+        d.bark();
+    }
+}</code></pre>
+
+        <h3>Output</h3>
+        <pre class="output">
+Animal is eating
+Dog is barking</pre
+        >
+
+        <h3>How Does It Work?</h3>
+        <ol>
+          <li><code>Animal</code> is the parent class.</li>
+          <li><code>Dog extends Animal</code> makes Dog a child class.</li>
+          <li><code>eat()</code> is defined in Animal.</li>
+          <li><code>bark()</code> is defined in Dog.</li>
+          <li>The object <code>d</code> can call both accessible methods.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>8. Advantages and Disadvantages</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Advantages</h3>
+            <ul>
+              <li>Code reuse</li>
+              <li>Less duplication</li>
+              <li>Easier extension</li>
+              <li>Supports polymorphism</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Disadvantages</h3>
+            <ul>
+              <li>Tight coupling between classes</li>
+              <li>Changes to parent classes may affect children</li>
+              <li>Deep hierarchies can be difficult to understand</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>9. Test Your Knowledge</h2>
+        <p id="question">
+          Which keyword is used for class inheritance in Java?
+        </p>
+
+        <div class="quiz-options">
+          <button class="option" data-answer="wrong">implements</button>
+          <button class="option" data-answer="correct">extends</button>
+          <button class="option" data-answer="wrong">inherits</button>
+        </div>
+
+        <p id="quizResult" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>JavaLearn | Learn Java step by step</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
